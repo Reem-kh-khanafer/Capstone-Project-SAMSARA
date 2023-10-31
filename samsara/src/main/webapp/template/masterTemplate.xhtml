@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:o="http://omnifaces.org/ui">
+
+<f:view locale="en">
+
+	<h:head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>#{pageSubTitle}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link rel="icon"
+			href="#{resource['assets/images:sidebar-close-logo1.png']}"
+			type="image/x-icon" />
+		<!-- Bootstrap -->
+		<h:outputStylesheet library="bootstrap/dist/css/"
+			name="bootstrap.min.css" />
+
+		<h:outputStylesheet library="fonts" name="iconfont.min.css" />
+		<h:outputStylesheet library="css" name="site.css" />
+		<h:outputStylesheet library="css" name="plugins.css" />
+		<h:outputStylesheet library="css" name="helper.css" />
+		<h:outputStylesheet library="css" name="style.css" />
+
+		<!-- Modernizr JS -->
+		<h:outputScript library="js" name="modernizr-2.8.3.min.js" />
+
+		<f:facet name="first">
+			<h:outputScript library="primefaces" name="jquery/jquery.js" />
+		</f:facet>
+
+	</h:head>
+
+	<h:body>
+		<div id="main-wrapper">
+
+			<!--Header section start-->
+			<header class="header header-stick">
+			<div class="header-bottom menu-center">
+				<div class="container">
+					<div class="row justify-content-between">
+
+						<!--Logo start-->
+						<div class="col mt-10 mb-10">
+							<div class="logo">
+								<a>
+									<p:graphicImage library="images" name="logo.png" alt="logo" width="65px"/>
+								</a>
+							</div>
+						</div>
+						<!--Logo end-->
+
+						<!--Menu start-->
+						<div class="col d-none d-lg-flex">
+							<nav class="main-menu">
+							<ul>
+								<li>
+									<h:link outcome="home" styleClass="nav-link">
+										<span class="title">Home</span>
+									</h:link>
+								</li>
+								<li>
+									<h:link outcome="home" styleClass="nav-link">
+										<span class="title">Shop</span>
+									</h:link>
+								</li>
+							</ul>
+							</nav>
+						</div>
+						<!--Menu end-->
+
+						<!--User start-->
+						<div class="col mr-sm-50 mr-xs-50">
+							<div class="header-user">
+								<a style="color: black"><span>Login or Register</span></a>
+							</div>
+						</div>
+						<!--User end-->
+					</div>
+
+					<!--Mobile Menu start-->
+					<div class="row">
+						<div class="col-12 d-flex d-lg-none">
+							<div class="mobile-menu"></div>
+						</div>
+					</div>
+					<!--Mobile Menu end-->
+
+				</div>
+			</div>
+			</header>
+			<!--Header section end-->
+
+
+			<main role="main" class="pb-3"> 
+				<h:form prependId="false">
+					<ui:insert name="contentInForm"></ui:insert>
+				</h:form>
+
+				<ui:insert name="contentOutForm"></ui:insert>
+			</main>
+
+			<!--Footer section start-->
+			<footer class="footer-section section">
+
+			<div
+				class="footer-top section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-60 pb-lg-40 pb-md-30 pb-sm-20 pb-xs-10">
+				<div class="container">
+					<div class="row row-25">
+						<!--Footer Widget start-->
+						<div class="footer-widget col-lg-6 col-md-6 col-12 mb-40">
+							<h4 class="title">
+								<span class="text">Contact us</span><span class="shape"></span>
+							</h4>
+							<ul>
+								<li><i class="fa fa-map-o"></i><span>Beirut, Lebanon</span></li>
+								<li><i class="fa fa-phone"></i><span><a href="#">+961
+											76 938 970</a><a href="#">+961 3 37 47 91</a></span></li>
+								<li><i class="fa fa-envelope-o"></i><span><a
+										href="#">samsara@gmail.com</a><a href="#">www.samsara.com</a></span></li>
+							</ul>
+						</div>
+						<!--Footer Widget end-->
+					</div>
+				</div>
+			</div>
+
+			</footer>
+			<!--Footer section end-->
+		</div>
+
+
+
+		<!-- bootstrap js -->
+		<h:outputScript library="bootstrap/dist/js" name="bootstrap.min.js" />
+		<h:outputScript library="js" name="jquery-migrate-1.4.1.min.js" />
+		<h:outputScript library="js" name="popper.min.js" />
+		<h:outputScript library="js" name="plugins.js" />
+		<h:outputScript library="js" name="map-place.js" />
+		<h:outputScript library="js" name="feather.min.js" />
+		<h:outputScript library="js" name="main.js" />
+		<h:outputScript library="js" name="site.js" />
+
+		<ui:insert name="moreScripts" />
+
+		<h:panelGroup id="growl">
+			<h:outputScript rendered="#{not empty facesContext.messageList}">
+				<ui:repeat var="msg" value="#{facesContext.messageList}">
+					generateMessage("#{msg.summary}", "#{msg.detail}","#{msg.severity}");
+				</ui:repeat>
+			</h:outputScript>
+		</h:panelGroup>
+
+	</h:body>
+</f:view>
+</html>
